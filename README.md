@@ -44,9 +44,9 @@ In the requirements.txt file you may find the requirements needed for this appli
 * accelerate
 
 Bash command that you may use to install dependencies:
-'''bash
+```bash
 pip install gradio transformers torch google-generativeai librosa accelerate
-'''
+```
 
 The user would need to generate a Gemini API Key through Google AI Studio, to be able to use the Tab 3 app.
 
