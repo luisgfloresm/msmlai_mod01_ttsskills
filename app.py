@@ -25,14 +25,17 @@ def process_audio(audio_path: str) -> tuple[str, str]:
     if audio_path is None:
         return "No audio detected", "N/A"
     
-    # Whisper handles the audio file path directly
-    transcription = stt_pipeline(audio_path)["text"]
-    
-    # Generate the Sentiment Analysis
-    sentiment_result = sentiment_pipeline(transcription)[0]
-    label = sentiment_result['label']
-    score = round(sentiment_result['score'], 4)
-    sentiment_output = f"Analysis: {label} ({score:.2%} confidence)"
+    try:
+        # Whisper handles the audio file path directly
+        transcription = stt_pipeline(audio_path)["text"]
+        
+        # Generate the Sentiment Analysis
+        sentiment_result = sentiment_pipeline(transcription)[0]
+        label = sentiment_result['label']
+        score = round(sentiment_result['score'], 4)
+        sentiment_output = f"Analysis: {label} ({score:.2%} confidence)"
+    except Exception as e:
+        return f"Error: {str(e)}", "Error"
     
     # Return the transcription and sentiment analysis
     return transcription, sentiment_output
@@ -51,15 +54,18 @@ def analyze_and_speak(text: str):
     if not text.strip():
         return None, "Please enter some text."
 
-    # Generate the Sentiment Analysis
-    sentiment_result = sentiment_pipeline(text)[0]
-    label = sentiment_result['label']
-    score = sentiment_result['score']
-    sentiment_output = f"Analysis: {label} ({score:.2%} confidence)"
+    try:
+        # Generate the Sentiment Analysis
+        sentiment_result = sentiment_pipeline(text)[0]
+        label = sentiment_result['label']
+        score = sentiment_result['score']
+        sentiment_output = f"Analysis: {label} ({score:.2%} confidence)"
 
-    # Generate Audio (TTS)
-    # The pipeline returns a dictionary with 'audio' (numpy array) and 'sampling_rate'
-    audio_data = tts_pipeline(text)
+        # Generate Audio (TTS)
+        # The pipeline returns a dictionary with 'audio' (numpy array) and 'sampling_rate'
+        audio_data = tts_pipeline(text)
+    except Exception as e:
+        return None, f"Error: {str(e)}"
     
     # Gradio gr.Audio component expects a tuple of (sample_rate, data)
     # Return the audio data and sentiment analysis
@@ -84,28 +90,28 @@ def process_meeting(api_key: str, audio_path: str):
     if audio_path is None:
         return "No audio provided.", "N/A", None
 
-    # Transcribe the audio
-    transcription = stt_pipeline(audio_path)["text"]
-    
-    # Create the model and Summarize
-    # Configure SDK with user-provided secret key
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-2.5-flash')
-
-    # Define the prompt with the main instruction
-    prompt = "Provide a concise summary of the following transcription, highlighting the main ideas and key points in bullet points. Keep the summary under 50 words."
-
-    # Send the prompt and the audio transcription to the model
     try:
+        # Transcribe the audio
+        transcription = stt_pipeline(audio_path)["text"]
+        
+        # Create the model and Summarize
+        # Configure SDK with user-provided secret key
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel('gemini-2.5-flash')
+
+        # Define the prompt with the main instruction
+        prompt = "Provide a concise summary of the following transcription, highlighting the main ideas and key points in bullet points. Keep the summary under 50 words."
+
+        # Send the prompt and the audio transcription to the model
         response = model.generate_content(f"{prompt}\n\n{transcription}")
-    except Exception as e:
-        return transcription, f"Error: {str(e)}", None
-    
-    # Save the summary from the response
-    summary = response.text
+
+        # Save the summary from the response
+        summary = response.text
  
-    # Turn the summary back into speech
-    audio_data = tts_pipeline(summary)
+        # Turn the summary back into speech
+        audio_data = tts_pipeline(summary)
+    except Exception as e:
+        return "Error", f"Error: {str(e)}", None
     
     return transcription, summary, (audio_data["sampling_rate"], audio_data["audio"])
 
