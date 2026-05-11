@@ -1,5 +1,6 @@
 gradio
 transformers
 torch
+google-generativeai
 librosa
 accelerate
