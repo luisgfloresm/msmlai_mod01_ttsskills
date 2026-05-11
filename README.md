@@ -25,9 +25,9 @@ The applications contains 3 main tabs:
 I have included some machine learning models available through Hugging Face. The machine learning models used in the 
 application include the following:
 
-OpenAI's Whisper - openai/whisper-tiny
-DistilBERT - distilbert-base-uncased-finetuned-sst-2-english
-Meta's MMS - facebook/mms-tts-eng
+* OpenAI's Whisper - openai/whisper-tiny
+* DistilBERT - distilbert-base-uncased-finetuned-sst-2-english
+* Meta's MMS - facebook/mms-tts-eng
 
 I also included a feature functionality using Google Gemini with a Gemini API Key using Google's Gemini 2.5 Flash.
 
@@ -36,15 +36,17 @@ https://huggingface.co/spaces/lfloresmorales/ttsskills
 
 ## Requirements/Dependencies
 In the requirements.txt file you may find the requirements needed for this application to work, including:
-gradio
-transformers
-torch
-google-generativeai
-librosa
-accelerate
+* gradio
+* transformers
+* torch
+* google-generativeai
+* librosa
+* accelerate
 
 Bash command that you may use to install dependencies:
+'''bash
 pip install gradio transformers torch google-generativeai librosa accelerate
+'''
 
 The user would need to generate a Gemini API Key through Google AI Studio, to be able to use the Tab 3 app.
 
