@@ -9,7 +9,7 @@ OBS Business School
 
 Date: 10 May 2026
 
-## Project Description:
+## Project Description
 This project consists of a small demo application using Gradio and machine learning models to process audio and text.
 The applications contains 3 main tabs:
 * Tab 1 - Speech-to-Text and Sentiment Analyzer - The app takes an audio file or a recording using the microphone, and
@@ -34,7 +34,7 @@ I also included a feature functionality using Google Gemini with a Gemini API Ke
 There is a live demo published in Hugging Face Spaces, through the following URL:
 https://huggingface.co/spaces/lfloresmorales/ttsskills
 
-Requirements/Dependencies:
+## Requirements/Dependencies
 In the requirements.txt file you may find the requirements needed for this application to work, including:
 gradio
 transformers
@@ -48,4 +48,14 @@ pip install gradio transformers torch google-generativeai librosa accelerate
 
 The user would need to generate a Gemini API Key through Google AI Studio, to be able to use the Tab 3 app.
 
+## Screenshots of App in Hugging Face Spaces
+Here I am including some screenshots of the app deployed in Hugging Face Spaces.
 
+### Tab 1 - Speech-to-Text and Sentiment Analyzer
+<img width="1988" height="1028" alt="Screenshot Tab 1 - Speech-to-Text and Sentiment Analyzer" src="https://github.com/user-attachments/assets/ff740ab3-b9a2-426b-9426-74dc02bc214e" />
+
+### Tab 2 - Text-to-Speech and Sentiment Analyzer
+<img width="2032" height="1072" alt="Screenshot Tab 2 -  Text-to-Speech and Sentiment Analyzer" src="https://github.com/user-attachments/assets/db8b2dee-f97b-4872-a92b-ec175edf174b" />
+
+### Tab 3 - AI Meeting Assistant
+<img width="1988" height="1118" alt="Screenshot Tab 3 - AI Meeting Assistant" src="https://github.com/user-attachments/assets/a08fd5b7-cdb1-44f8-a650-865131bae839" />
