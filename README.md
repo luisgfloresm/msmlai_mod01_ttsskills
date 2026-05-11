@@ -3,11 +3,11 @@
 Creator:
 Luis G. Flores M.
 
-Project for Master of Machine Learning and Artificial Intelligence
-Module 01 - Fundaments of Programming (Python)
-OBS Business School
-
-Date: 10 May 2026
+* Project for Master of Machine Learning and Artificial Intelligence
+* Module 01 - Fundaments of Programming (Python)
+* OBS Business School
+* Date: 10 May 2026
+* Language: English
 
 ## Project Description
 This project consists of a small demo application using Gradio and machine learning models to process audio and text.
@@ -68,11 +68,11 @@ Here I am including some screenshots of the app deployed in Hugging Face Spaces.
 Creador:
 Luis G. Flores M.
 
-Proyecto para Master of Machine Learning and Artificial Intelligence
-Módulo 01 - Fundamentos de la Programación (Python)
-OBS Business School
-
-Fecha: 10 Mayo 2026
+* Proyecto para Master of Machine Learning and Artificial Intelligence
+* Módulo 01 - Fundamentos de la Programación (Python)
+* OBS Business School
+* Fecha: 10 Mayo 2026
+* Idioma: Inglés
 
 ## Descripción del Proyecto
 Este proyecto consiste en una aplicación de demostración pequeña que utiliza Gradio y modelos de aprendizaje automático 
