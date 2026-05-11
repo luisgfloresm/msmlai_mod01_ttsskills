@@ -1,4 +1,5 @@
 # msmlai_mod01_ttsskills
+## Author and Purpose
 Creator:
 Luis G. Flores M.
 
@@ -8,7 +9,7 @@ OBS Business School
 
 Date: 10 May 2026
 
-Project Description:
+## Project Description:
 This project consists of a small demo application using Gradio and machine learning models to process audio and text.
 The applications contains 3 main tabs:
 * Tab 1 - Speech-to-Text and Sentiment Analyzer - The app takes an audio file or a recording using the microphone, and
